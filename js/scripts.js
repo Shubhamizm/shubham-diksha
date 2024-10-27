@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     /***************** countdown timer ******************/
 
-    var weddingDate = new Date("2024-11-11T10:00:00").getTime(); // Replace with your date
+    var weddingDate = new Date("2024-12-11T10:00:00").getTime(); // Replace with your date
     var countdownFunction = setInterval(function () {
         var now = new Date().getTime();
         var distance = weddingDate - now;
@@ -167,7 +167,7 @@ $(document).ready(function () {
 
     for (var i = 0; i < share_bar.length; i++) {
         var html = '<iframe allowtransparency="true" frameborder="0" scrolling="no"' +
-            'src="https://platform.twitter.com/widgets/tweet_button.html?url=' + encodeURIComponent(window.location) + '&amp;text=' + encodeURIComponent(document.title) + '&amp;via=ramswarooppatra&amp;hashtags=ramandantara&amp;count=horizontal"' +
+            'src="https://platform.twitter.com/widgets/tweet_button.html?url=' + encodeURIComponent(window.location) + '&amp;text=' + encodeURIComponent(document.title) + '&amp;via=ramswarooppatra&amp;hashtags=dikshashubh&amp;count=horizontal"' +
             'style="width:105px; height:21px;">' +
             '</iframe>' +
 
