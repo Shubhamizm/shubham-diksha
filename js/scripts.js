@@ -261,21 +261,30 @@ $(document).ready(function () {
 
 // Google map
 function initMap() {
-    var location = {lat: 25.18310546875, lng: 75.91188049316406};
+    var location = { lat: 25.18310546875, lng: 75.91188049316406 };
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
         zoom: 14,
         center: location,
         scrollwheel: false,
+        mapTypeId: 'roadmap',
         mapTypeControlOptions: { mapTypeIds: [] }
     });
 
-    map.setMapTypeId('roadmap');
-
     var marker = new google.maps.Marker({
         position: location,
-        map: map
+        map: map,
+        title: "Pinned Location"
+    });
+
+    marker.addListener("click", function() {
+        // Open Google Maps for directions from the user's location to the pinned location
+        var directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=" + location.lat + "," + location.lng;
+        window.open(directionsUrl, "_blank");
     });
 }
+
+
+
 
 function initBBSRMap() {
     var la_fiesta = {lat: 20.305826, lng: 85.85480189999998};
