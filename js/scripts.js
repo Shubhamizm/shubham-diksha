@@ -1,5 +1,25 @@
 $(document).ready(function () {
 
+    /***************** countdown timer ******************/
+
+    var weddingDate = new Date("2024-11-11T10:00:00").getTime(); // Replace with your date
+    var countdownFunction = setInterval(function () {
+        var now = new Date().getTime();
+        var distance = weddingDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById("days").innerHTML = String(days).padStart(2, '0');
+        document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
+        document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
+        if (distance < 0) {
+            clearInterval(countdownFunction);
+            document.querySelector(".countdown-container").innerHTML = "<h1>It's your wedding day!</h1>";
+        }
+    }, 1000);
+
     /***************** Waypoints ******************/
 
     $('.wp1').waypoint(function () {
@@ -241,12 +261,15 @@ $(document).ready(function () {
 
 // Google map
 function initMap() {
-    var location = {lat: 22.5932759, lng: 88.27027720000001};
+    var location = {lat: 25.18310546875, lng: 75.91188049316406};
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
-        zoom: 15,
+        zoom: 14,
         center: location,
-        scrollwheel: false
+        scrollwheel: false,
+        mapTypeControlOptions: { mapTypeIds: [] }
     });
+
+    map.setMapTypeId('roadmap');
 
     var marker = new google.maps.Marker({
         position: location,
@@ -359,7 +382,7 @@ var MD5 = function (string) {
         lWordArray[lNumberOfWords - 1] = lMessageLength >>> 29;
         return lWordArray;
     };
-
+        
     function WordToHex(lValue) {
         var WordToHexValue = "", WordToHexValue_temp = "", lByte, lCount;
         for (lCount = 0; lCount <= 3; lCount++) {

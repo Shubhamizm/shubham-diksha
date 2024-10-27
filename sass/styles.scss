@@ -176,6 +176,21 @@ Waypoinsts
 /* ==========================================================================
 Navigation
 ========================================================================== */
+/* Styling for primary-nav links to add button-like hover effect */
+.primary-nav li a {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #333;  /* Default text color */
+  text-decoration: none;  /* Remove underline */
+}
+
+.primary-nav li a:hover {
+  background-color: #FF0000(177, 199, 39, 1.0); /* Semi-transparent hover color */
+  color: #fff; /* Text color on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Add a subtle shadow for depth */
+}
 .header-nav.open {
   visibility: visible;
   opacity: 0.9;
@@ -298,7 +313,7 @@ Hero
   width: 100%;
 }
 header {
-  padding: 50px 0;
+  padding: 35px 0;
   border-bottom: solid 1px rgba(255, 255, 255, 0.2);
   position: relative;
   width: 1170px;
@@ -318,7 +333,7 @@ header {
     display: inline-block;
   }
   .logo img {
-    height: 19px;
+    height: 25px;
   }
   ul.primary-nav {
     margin: 0 0 0 75px;
@@ -549,6 +564,50 @@ Features-stack
 }
 
 /* ==========================================================================
+countdown clock
+========================================================================== */
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.countdown {
+  display: flex;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.countdown-item {
+  margin: 0 10px;
+  text-align: center;
+}
+
+.countdown-number {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #3D4351; /* Change to your preferred color */
+}
+
+.countdown-label {
+  font-size: 1em;
+  color: #777;
+}
+
+.horizontal-section {
+  background-color: rgba(255, 0, 0, 0.5); /* Red color with 50% opacity */
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ // border-radius: 10px;
+ // margin: 20px auto;
+}
+
+/* ==========================================================================
 .events
 ========================================================================== */
 .events {
@@ -566,6 +625,14 @@ Features-stack
     text-transform: lowercase;
     color: $txt-primary;
   }
+}
+.column-border {
+  border-right: 1px solid #d8d8d8;
+  padding-right: 15px;
+}
+
+.column-border:last-of-type {
+  border-right: none;
 }
 
 /* ==========================================================================
@@ -723,6 +790,35 @@ Engagement Pics
 }
 
 /* ==========================================================================
+Ambani Section
+========================================================================== */
+
+.dog-content {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  max-width: 800px;
+}
+
+.dog-photo {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+}
+
+.dog-quote h2 {
+  font-size: 24px;
+  color: #000000;
+}
+
+.dog-quote p {
+  font-size: 18px;
+  color: #000000;
+  font-style: italic;
+}
+
+/* ==========================================================================
 Embed video
 ========================================================================== */
 #video-bg {
@@ -750,12 +846,12 @@ Embed video
 Google map
 ========================================================================== */
 #map-canvas {
-  height: 500px;
+  height: 600px;
   width: 100%;
 }
 #map-content-wrapper {
   position: relative;
-  margin-top: -502px;
+  margin-top: -520px;
   margin-bottom: 150px;
 }
 #map-content {
@@ -884,7 +980,7 @@ footer {
     margin-top: -5px;
   }
   span.fa-heart {
-    color: #ff415c;
+    color: #FF0000;
     font-size: 18px;
     margin: 0 2px;
   }
