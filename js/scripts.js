@@ -283,13 +283,13 @@ function initMap() {
     });
 }
 
-document.getElementById("arrival_date").addEventListener("focus", function() {
-    this.type = "date";
-});
+// document.getElementById("arrival_date").addEventListener("focus", function() {
+//     this.type = "date";
+// });
 
-document.getElementById("arrival_date").addEventListener("blur", function() {
-    if (!this.value) this.type = "text";
-});
+// document.getElementById("arrival_date").addEventListener("blur", function() {
+//     if (!this.value) this.type = "text";
+// });
 
 
 
