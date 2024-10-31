@@ -15,7 +15,7 @@
         google: function(event) {
             var startTime = formatTime(event.start);
             var endTime = calculateEndTime(event);
-
+        
             var href = encodeURI([
                 'https://www.google.com/calendar/render',
                 '?action=TEMPLATE',
@@ -26,9 +26,13 @@
                 '&location=' + (event.address || ''),
                 '&sprop=&sprop=name:'
             ].join(''));
-            return '<a class="icon-google" target="_blank" href="' +
-                href + '">Google Calendar</a>';
-        },
+        
+            return '<a target="_blank" href="' + href + '">' +
+                   '<img src="img/calendar/google.png" alt="Add to Google Calendar" width="45" border="0">' +
+                   '</a>';
+        }
+        
+        ,
 
         yahoo: function(event) {
             var eventDuration = event.end ?
@@ -59,16 +63,18 @@
                 '&in_loc=' + (event.address || '')
             ].join(''));
 
-            return '<a class="icon-yahoo" target="_blank" href="' +
-                href + '">Yahoo! Calendar</a>';
+            return '<a target="_blank" href="' + href + '">' +
+                   '<img src="img/calendar/yahoo.png" alt="Add to Yahoo Calendar" width="45" border="0">' +
+                   '</a>';
         },
 
         ics: function(event, eClass, calendarName) {
             var startTime = formatTime(event.start);
             var endTime = calculateEndTime(event);
 
-            var href = encodeURI(
-                'data:text/calendar;charset=utf8,' + [
+            if(calendarName === "iCal"){
+                var href = encodeURI(
+                    'data:text/calendar;charset=utf8,' + [
                     'BEGIN:VCALENDAR',
                     'VERSION:2.0',
                     'BEGIN:VEVENT',
@@ -81,8 +87,29 @@
                     'END:VEVENT',
                     'END:VCALENDAR'].join('\n'));
 
-            return '<a class="' + eClass + '" target="_blank" href="' +
-                href + '">' + calendarName + ' Calendar</a>';
+                    return '<a target="_blank" href="' + href + '">' +
+                    '<img src="img/calendar/apple.png" alt="Add to apple Calendar" width="45" border="0">' +
+                    '</a>';
+            }
+            else{
+                var href = encodeURI(
+                    'data:text/calendar;charset=utf8,' + [
+                    'BEGIN:VCALENDAR',
+                    'VERSION:2.0',
+                    'BEGIN:VEVENT',
+                    'URL:' + document.URL,
+                    'DTSTART:' + (startTime || ''),
+                    'DTEND:' + (endTime || ''),
+                    'SUMMARY:' + (event.title || ''),
+                    'DESCRIPTION:' + (event.description || ''),
+                    'LOCATION:' + (event.address || ''),
+                    'END:VEVENT',
+                    'END:VCALENDAR'].join('\n'));
+
+                    return '<a target="_blank" href="' + href + '">' +
+                    '<img src="img/calendar/outlook.png" alt="Add to Outlook Calendar" width="45" border="0">' +
+                    '</a>';
+            }
         },
 
         ical: function(event) {
@@ -114,7 +141,7 @@
         var styles = document.createElement('style');
         styles.id = 'ouical-css';
 
-        styles.innerHTML = "#add-to-calendar-label{margin-bottom:10px;cursor:pointer}.add-to-calendar a{margin:3px}.add-to-calendar-checkbox~a{display:none}.add-to-calendar-checkbox:checked~a{display:block;}input[type=checkbox].add-to-calendar-checkbox{display:none}";
+        styles.innerHTML = "#add-to-calendar-label{margin-bottom:10px;cursor:pointer}.calendar-links{display:inline-flex}.add-to-calendar a{margin:3px}.add-to-calendar-checkbox~a{display:none}.add-to-calendar-checkbox:checked~a{display:block;}input[type=checkbox].add-to-calendar-checkbox{display:none}";
 
         return styles;
     };
@@ -126,26 +153,37 @@
     };
 
     var generateMarkup = function(calendars, clazz, calendarId) {
-        var result = document.createElement('div');
-
-        result.innerHTML = '<label id="add-to-calendar-label" for="checkbox-for-' +
-            calendarId + '" class="btn btn-fill btn-small"><i class="fa fa-calendar"></i>&nbsp;&nbsp; Add to Calendar</label>';
-        result.innerHTML += '<input name="add-to-calendar-checkbox" class="add-to-calendar-checkbox" id="checkbox-for-' + calendarId + '" type="checkbox">';
-
-        Object.keys(calendars).forEach(function(services) {
-            result.innerHTML += calendars[services];
-        });
-
-        result.className = 'add-to-calendar';
+        // Create the main container div
+        var container = document.createElement('div');
+        container.className = 'add-to-calendar';
         if (clazz !== undefined) {
-            result.className += (' ' + clazz);
+            container.className += (' ' + clazz);
         }
-
+        container.id = calendarId;
+    
+        // Create the button div
+        var buttonDiv = document.createElement('div');
+        buttonDiv.innerHTML = '<label id="add-to-calendar-label" for="checkbox-for-' +
+            calendarId + '" class="btn btn-fill btn-small"><i class="fa fa-calendar"></i>&nbsp;&nbsp; Add to Calendar</label>';
+        container.appendChild(buttonDiv);
+    
+        // Create the links div
+        var linksDiv = document.createElement('div');
+        linksDiv.className = 'calendar-links';
+        linksDiv.innerHTML = '<input name="add-to-calendar-checkbox" class="add-to-calendar-checkbox" id="checkbox-for-' + calendarId + '" type="checkbox">';
+        
+        Object.keys(calendars).forEach(function(services) {
+            linksDiv.innerHTML += calendars[services];
+        });
+        
+        container.appendChild(linksDiv);
+    
+        // Add CSS if not already added
         addCSS();
-
-        result.id = calendarId;
-        return result;
+    
+        return container;
     };
+    
 
     var getClass = function(params) {
         if (params.options && params.options.class) {
