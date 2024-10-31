@@ -19,7 +19,6 @@ $(document).ready(function () {
             document.querySelector(".countdown-container").innerHTML = "<h1>It's your wedding day!</h1>";
         }
     }, 1000);
-
     /***************** Waypoints ******************/
 
     $('.wp1').waypoint(function () {
@@ -180,6 +179,16 @@ $(document).ready(function () {
         share_bar[i].innerHTML = html;
         share_bar[i].style.display = 'inline-block';
     }
+
+    /********************* Date Picker *****************************/
+
+    $(function() {
+        flatpickr("#arrival_date", {
+            dateFormat: "Y-m-d", // Format as YYYY-MM-DD
+            minDate: "2024-11-10", // Minimum date
+            maxDate: "2024-11-14", // Maximum date
+        });
+    });
 
     /********************** Embed youtube video *********************/
     $('.player').YTPlayer();
