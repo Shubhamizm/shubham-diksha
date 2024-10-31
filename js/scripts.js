@@ -185,8 +185,8 @@ $(document).ready(function () {
     $(function() {
         flatpickr("#arrival_date", {
             dateFormat: "Y-m-d", // Format as YYYY-MM-DD
-            minDate: "2024-11-10", // Minimum date
-            maxDate: "2024-11-14", // Maximum date
+           // minDate: "2024-11-10", // Minimum date
+         //   maxDate: "2024-11-14", // Maximum date
         });
     });
 
@@ -247,9 +247,8 @@ $(document).ready(function () {
             && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbyo0rEknln8LedEP3bkONsfOh776IR5lFidLhJFQ6jdvRiH4dKvHZmtoIybvnxpxYr2cA/exec', data)
+            $.post('https://script.google.com/macros/s/AKfycbw7r3RaOhMS73xjThf3Gq1ZludzpP1CqQCNmZbJUqnPIQU5ACRQB9LZ89JpaAmoRGUJZg/exec', data)
                 .done(function (data) {
-                    console.log(data);
                     if (data.result === "error") {
                         $('#alert-wrapper').html(alert_markup('danger', data.message));
                     } else {
@@ -291,14 +290,6 @@ function initMap() {
         window.open(directionsUrl, "_blank");
     });
 }
-
-// document.getElementById("arrival_date").addEventListener("focus", function() {
-//     this.type = "date";
-// });
-
-// document.getElementById("arrival_date").addEventListener("blur", function() {
-//     if (!this.value) this.type = "text";
-// });
 
 
 
