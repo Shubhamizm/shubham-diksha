@@ -167,12 +167,13 @@ Animations
 }
 
 .qr-code-container {
-  display: inline-block;
+  display: block;
+ // width: 200px;
   height: auto;
 }
 .qr-code {
  // width: 100%;
-  height: auto;
+ // height: auto;
 }
 
 /* ==========================================================================
