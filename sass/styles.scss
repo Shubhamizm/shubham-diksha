@@ -166,6 +166,15 @@ Animations
   text-align: center;
 }
 
+.qr-code-container {
+  display: inline-block;
+  height: auto;
+}
+.qr-code {
+ // width: 100%;
+  height: auto;
+}
+
 /* ==========================================================================
 Waypoinsts
 ========================================================================== */
