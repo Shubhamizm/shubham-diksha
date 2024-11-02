@@ -168,8 +168,9 @@ Animations
 
 .qr-code-container {
   display: block;
- // width: 200px;
   height: auto;
+  margin-bottom: 20px;
+  padding-top: 20%;
 }
 
 /* ==========================================================================
@@ -611,7 +612,7 @@ countdown clock
 }
 
 .horizontal-section {
-  background-color: rgba(255, 0, 0, 0.5); /* Red color with 50% opacity */
+  background-color: #E47878;
   padding: 20px;
   display: flex;
   align-items: center;

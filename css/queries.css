@@ -11,6 +11,13 @@
 
 }
 
+@media screen and (max-width: 768px) {
+    .qr-code-container {
+        padding-top: 10%;
+    }
+    
+}
+
 @media screen and (max-width: 1024px) {
     .hero .hero-content {
         padding-top: 50%;
