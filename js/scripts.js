@@ -274,18 +274,19 @@ function initMap() {
         center: location,
         scrollwheel: false,
         mapTypeId: 'roadmap',
+        mapId: 'aba9bdc4325a0545',
         mapTypeControlOptions: { mapTypeIds: [] }
     });
 
     var locationTag = document.createElement("div");
     locationTag.className = "location";
-    locationTag.textContent = "Click/Tap here to get directions!";
+    locationTag.textContent = "Click/Tap to get directions!";
 
     var marker = new google.maps.marker.AdvancedMarkerElement({
         map: map,
         position: location,
         content: locationTag,
-        title: "RR Resorts, Kota",
+   //     title: "RR Resorts, Kota",
       });
 
     // var marker = new google.maps.Marker({
