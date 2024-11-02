@@ -277,11 +277,22 @@ function initMap() {
         mapTypeControlOptions: { mapTypeIds: [] }
     });
 
-    var marker = new google.maps.Marker({
-        position: location,
+    var locationTag = document.createElement("div");
+    locationTag.className = "location";
+    locationTag.textContent = "Click/Tap here to get directions!";
+
+    var marker = new google.maps.marker.AdvancedMarkerElement({
         map: map,
-        title: "Pinned Location"
-    });
+        position: location,
+        content: locationTag,
+        title: "RR Resorts, Kota",
+      });
+
+    // var marker = new google.maps.Marker({
+    //     position: location,
+    //     map: map,
+    //     title: "Pinned Location"
+    // });
 
     marker.addListener("click", function() {
         // Open Google Maps for directions from the user's location to the pinned location
