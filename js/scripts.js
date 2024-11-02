@@ -253,6 +253,7 @@ $(document).ready(function () {
                     } else {
                         $('#alert-wrapper').html('');
                         $('#rsvp-modal').modal('show');
+                        $('#rsvp-form')[0].reset();
                     }
                 })
                 .fail(function (data) {
