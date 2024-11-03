@@ -287,7 +287,7 @@ function initMap() {
         map: map,
         position: location,
         content: locationTag,
-   //     title: "RR Resorts, Kota",
+        title: "RR Resorts, Kota",
       });
 
     // var marker = new google.maps.Marker({

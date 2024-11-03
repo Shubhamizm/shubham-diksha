@@ -855,6 +855,15 @@ Embed video
 #video-content p {
   color: #ffffff;
 }
+@media (max-width: 768px) {
+  #bgndVideo {
+      display: none; /* Hide the video on smaller screens */
+  }
+
+  #video-bg {
+      background: url('../img/chambal-3.jpg') no-repeat center center/cover;
+  }
+}
 
 /* ==========================================================================
 Google map
