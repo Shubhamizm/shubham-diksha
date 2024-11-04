@@ -637,7 +637,8 @@ countdown clock
     font-size: 13px;
     font-style: italic;
     text-transform: lowercase;
-    color: $txt-primary;
+    //color: $txt-primary;
+    color: $accent-color;
   }
 }
 .column-border {
