@@ -638,8 +638,21 @@ countdown clock
     font-size: 13px;
     font-style: italic;
     text-transform: lowercase;
-    //color: $txt-primary;
     color: $accent-color;
+  }
+  .functions {
+    color: $txt-primary;
+    //font-weight: 400;
+    font-size: 15px;
+  }
+  .em-desc {
+    color: $txt-secondary;
+    font-weight: 600;
+  }
+  .venue {
+    color: $accent-color;
+    font-size: 15px;
+    font-weight: 600;
   }
 }
 .column-border {
