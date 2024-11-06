@@ -36,6 +36,7 @@
     }
 
     .hero {
+        background-size: 100% 100%;
         background-image: url('../img/us/img_3-min.JPG');
     }
 
