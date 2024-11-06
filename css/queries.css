@@ -36,8 +36,7 @@
     }
 
     .hero {
-        /* padding-top: 50%; */
-        background: url('../img/us/img_3-min.JPG') center center;
+        background-image: url('../img/us/img_3-min.JPG');
     }
 
     .header-nav {
