@@ -35,6 +35,11 @@
         padding-top: 50%;
     }
 
+    .column-border {
+        border-left: none;
+        border-right: none;
+    }
+
     .hero {
         background-image: url('../img/us/img_3-min.JPG');
     }
