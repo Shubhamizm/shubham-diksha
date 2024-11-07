@@ -640,6 +640,15 @@ countdown clock
     text-transform: lowercase;
     color: $accent-color;
   }
+
+  .dress-code {
+    font-size: 13.5px;
+    font-style: italic;
+    //999797
+    color: $txt-secondary;
+    font-weight: 600;
+    text-transform: none;
+  }
   .functions {
     color: $txt-primary;
     //font-weight: 400;
