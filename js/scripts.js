@@ -240,27 +240,22 @@ $(document).ready(function () {
     $('#rsvp-form').on('submit', function (e) {
         e.preventDefault();
         var data = $(this).serialize();
-
+        data += "&arrival_date=2024-12-11&invite_code=571117";
         $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
-
-        if (MD5($('#invite_code').val()) !== '85d00655d3a5dd6f34da9d5e8776c071') {
-            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
-        } else {
-            $.post('https://script.google.com/macros/s/AKfycby0fnMVgBuQBxPL1UeMlJIWdG33FfJ5o_sU19z9dwvhHLt_65IoZk6LoyMnaMu6AxbrWQ/exec', data)
-                .done(function (data) {
-                    if (data.result === "error") {
-                        $('#alert-wrapper').html(alert_markup('danger', data.message));
-                    } else {
-                        $('#alert-wrapper').html('');
-                        $('#rsvp-modal').modal('show');
-                        $('#rsvp-form')[0].reset();
-                    }
-                })
-                .fail(function (data) {
-                    console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
-                });
-        }
+        $.post('https://script.google.com/macros/s/AKfycby0fnMVgBuQBxPL1UeMlJIWdG33FfJ5o_sU19z9dwvhHLt_65IoZk6LoyMnaMu6AxbrWQ/exec', data)
+        .done(function (data) {
+            if (data.result === "error") {
+                $('#alert-wrapper').html(alert_markup('danger', data.message));
+            } else {
+                $('#alert-wrapper').html('');
+                $('#rsvp-modal').modal('show');
+                $('#rsvp-form')[0].reset();
+            }
+        })
+        .fail(function (data) {
+            console.log(data);
+            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
+        });
     });
 
 });
