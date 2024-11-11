@@ -240,7 +240,7 @@ $(document).ready(function () {
     $('#rsvp-form').on('submit', function (e) {
         e.preventDefault();
         var data = $(this).serialize();
-        data += "&arrival_date=2024-12-11&invite_code=571117";
+        data += "&invite_code=571117";
         $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
         $.post('https://script.google.com/macros/s/AKfycby0fnMVgBuQBxPL1UeMlJIWdG33FfJ5o_sU19z9dwvhHLt_65IoZk6LoyMnaMu6AxbrWQ/exec', data)
         .done(function (data) {
