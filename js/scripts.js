@@ -14,10 +14,10 @@ $(document).ready(function () {
         document.getElementById("days").innerHTML = String(days).padStart(2, '0');
         document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
         document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
-        if (distance < 0) {
-            clearInterval(countdownFunction);
-            document.querySelector(".countdown-container").innerHTML = "<h1>It's your wedding day!</h1>";
-        }
+        // if (distance < 0) {
+        //     clearInterval(countdownFunction);
+        //     document.querySelector(".countdown-container").innerHTML = "<h1>It's your wedding day!</h1>";
+        // }
     }, 1000);
     /***************** Waypoints ******************/
 
